@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.akh.votingapp.View.Authentication.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.akh.votingapp.View.Authentication.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.akh.votingapp.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
+</navigation>

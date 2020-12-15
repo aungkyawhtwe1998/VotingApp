@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">VotingApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">KTU IT CLUB(Voting System)</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_cec">CEC</string>
+    <string name="menu_result">Result</string>
+    <string name="menu_logout">Logout</string>
+</resources>
