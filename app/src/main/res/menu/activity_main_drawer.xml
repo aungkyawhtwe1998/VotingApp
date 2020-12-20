@@ -17,8 +17,8 @@
             android:icon="@drawable/ic_baseline_ballot_24"
             android:title="@string/menu_result" />
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_admin"
             android:icon="@drawable/ic_log_out"
-            android:title="@string/menu_logout" />
+            android:title="@string/menu_admin" />
     </group>
 </menu>

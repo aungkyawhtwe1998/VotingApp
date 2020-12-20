@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|center_vertical">
+
+    <TextView
+        android:id="@+id/txt_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/comfortaa_light"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:focusable="true"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/cec_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/txt_insert_home_news"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:src="@drawable/undraw_voting_nvu7"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ကိုယ်စားလှယ်လောင်း ထည့်ရန်"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:focusable="true"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/info_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:src="@drawable/undraw_feedback_h2ft"/>
+
+            <TextView
+                android:id="@+id/txt_insert_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="သတင်း ကြေငြာရန်"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

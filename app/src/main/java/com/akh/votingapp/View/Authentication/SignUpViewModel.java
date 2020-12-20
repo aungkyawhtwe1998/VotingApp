@@ -6,19 +6,19 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.akh.votingapp.Model.UserRepo;
+import com.akh.votingapp.Model.AuthRepo;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpViewModel extends AndroidViewModel {
-    private UserRepo userRepo;
+    private AuthRepo authRepo;
     private MutableLiveData<FirebaseUser> userMutableLiveData;
     public SignUpViewModel(@NonNull Application application) {
         super(application);
-        userRepo = new UserRepo(application);
-        userMutableLiveData = userRepo.getUserMutableLiveData();
+        authRepo = new AuthRepo(application);
+        userMutableLiveData = authRepo.getUserMutableLiveData();
     }
     public void signUp(String email, String password, String username){
-        userRepo.signUp(email, password, username);
+        authRepo.signUp(email, password, username);
     }
 
     public MutableLiveData<FirebaseUser> getUserMutableLiveData() {

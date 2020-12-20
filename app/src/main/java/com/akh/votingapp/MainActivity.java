@@ -2,9 +2,11 @@ package com.akh.votingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth firebaseAuth;
     private LogoutViewModel logoutViewModel;
+    private TextView txt_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +40,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         logoutViewModel = new ViewModelProvider(this).get(LogoutViewModel.class);
-        logoutViewModel.getUserMutableLiveData().observe(this, new Observer<FirebaseUser>() {
-            @Override
-            public void onChanged(FirebaseUser firebaseUser) {
-                if(firebaseUser!=null){
-//                    txtemail.setText(firebaseUser.getEmail());
-//                    btn_logout.setEnabled(true);
-                }else {
-                    //btn_logout.setEnabled(false);
-                }
-            }
-        });
         logoutViewModel.getLogedOutMutableLiveData().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
@@ -61,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,17 +62,32 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_cec, R.id.nav_result)
+                R.id.nav_home, R.id.nav_cec, R.id.nav_result, R.id.nav_admin)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        logoutViewModel.getUserMutableLiveData().observe(this, new Observer<FirebaseUser>() {
+            @Override
+            public void onChanged(FirebaseUser firebaseUser) {
+                if(firebaseUser!=null){
+                    Toast.makeText(getApplicationContext(),firebaseUser.getEmail(),Toast.LENGTH_SHORT).show();
+                    txt_email = navigationView.findViewById(R.id.txt_home_email);
+                    txt_email.setText(firebaseUser.getEmail());
+//                    btn_logout.setEnabled(true);
+                }else {
+                    //btn_logout.setEnabled(false);
+                }
+            }
+        });
     }
 
     @Override

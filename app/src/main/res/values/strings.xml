@@ -10,5 +10,14 @@
     <string name="menu_home">Home</string>
     <string name="menu_cec">CEC</string>
     <string name="menu_result">Result</string>
-    <string name="menu_logout">Logout</string>
+    <string name="menu_admin">Admin Dashboard</string>
+    <string-array name="cec_position">
+        <item>ဉကဋ္ဌ</item>
+        <item>အတွင်းရေးမှူး</item>
+        <item>ဘဏာရေးမှူး</item>
+        <item>ပြန်ကြားရေးမှူး</item>
+        <item>စာရင်းစစ်</item>
+        <item>စည်းရုံးရေးမှူး</item>
+    </string-array>
+
 </resources>

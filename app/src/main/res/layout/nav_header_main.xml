@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Email"
+        android:id="@+id/txt_home_email"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
