@@ -32,8 +32,6 @@ public class AuthRepo {
             userMutableLiveData.postValue(firebaseAuth.getCurrentUser());
             loggedOutMutableLiveData.postValue(false);
         }
-
-
     }
 
     public MutableLiveData<FirebaseUser> getUserMutableLiveData() {

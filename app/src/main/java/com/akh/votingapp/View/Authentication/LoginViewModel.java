@@ -18,8 +18,8 @@ public class LoginViewModel extends AndroidViewModel {
         userMutableLiveData = authRepo.getUserMutableLiveData();
     }
 
-    public void login(String emial, String password){
-        authRepo.logIn(emial,password);
+    public void login(String email, String password){
+        authRepo.logIn(email,password);
     }
 
     public MutableLiveData<FirebaseUser> getUserMutableLiveData(){
