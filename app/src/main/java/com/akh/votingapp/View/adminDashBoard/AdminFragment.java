@@ -42,6 +42,12 @@ public class AdminFragment extends Fragment {
                 Navigation.findNavController(getView()).navigate(R.id.action_nav_admin_to_insert_CEC_Fragment);
             }
         });
+        info_insert_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getView()).navigate(R.id.action_nav_admin_to_insert_Info_Fragment);
+            }
+        });
         return view;
 
     }

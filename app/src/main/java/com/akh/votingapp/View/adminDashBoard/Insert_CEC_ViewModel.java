@@ -5,10 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.akh.votingapp.Model.CEC;
-import com.akh.votingapp.Model.CECRepo;
+import com.akh.votingapp.Repo.CECRepo;
 
 import java.util.ArrayList;
 

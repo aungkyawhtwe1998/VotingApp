@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_cec"
-            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:icon="@drawable/ic_baseline_person_pin_24"
             android:title="@string/menu_cec" />
         <item
             android:id="@+id/nav_result"
@@ -18,7 +18,7 @@
             android:title="@string/menu_result" />
         <item
             android:id="@+id/nav_admin"
-            android:icon="@drawable/ic_log_out"
+            android:icon="@drawable/ic_round_admin_panel_settings_24"
             android:title="@string/menu_admin" />
     </group>
 </menu>

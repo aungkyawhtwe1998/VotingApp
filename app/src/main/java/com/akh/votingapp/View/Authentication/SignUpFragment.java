@@ -29,7 +29,6 @@ public class SignUpFragment extends Fragment {
         signUpViewModel.getUserMutableLiveData().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-                // TODO: 12/15/20 nav process
                 Navigation.findNavController(getView()).navigate(R.id.action_signUpFragment_to_loginFragment);
             }
         });

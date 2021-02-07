@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:text="ကိုယ်စားလှယ်လောင်း စားရင်းသွင်းရန်"
         android:textAlignment="center"
         android:textColor="@color/purple_700"
-        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:layout_below="@id/textView4"
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,14 +37,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/cec_insert_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_itlogo" />
-
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_cec"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:civ_border_color="@color/black"
+                    app:civ_border_overlay="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <EditText
                 android:id="@+id/edt_cec_name"
                 android:layout_width="match_parent"
@@ -69,7 +77,6 @@
                 android:hint="ဋ္ဌာန အမည်"
                 android:padding="10dp"
                 android:textAlignment="center"
-                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -82,7 +89,6 @@
                 android:hint="ရာထူး"
                 android:padding="10dp"
                 android:textAlignment="center"
-                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -95,7 +101,6 @@
                 android:hint="ကိုယ်စားလှယ် Email address"
                 android:padding="10dp"
                 android:textAlignment="center"
-                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Spinner
@@ -115,27 +120,26 @@
                 android:background="@drawable/input_corner"
                 android:fontFamily="@font/comfortaa_light"
                 android:gravity="top"
-                android:hint="ကိုယ်ရေးအကViewModelျဉ်း"
+                android:hint="ကိုယ်ရေးအကျဉ်း"
                 android:minHeight="200dp"
                 android:padding="10dp"
-                android:textSize="20sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_save_cec"
-        android:background="@drawable/input_corner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:fontFamily="@font/comfortaa_light"
-        android:src="@drawable/ic_baseline_add_24"
-        android:textSize="20sp"
+        android:src="@drawable/ic_baseline_check_24"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="#B29CD8" />
+        app:rippleColor="#B29CD8"
+        android:layout_alignBottom="@id/scrollView2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

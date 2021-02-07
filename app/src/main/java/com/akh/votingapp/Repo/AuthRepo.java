@@ -1,4 +1,4 @@
-package com.akh.votingapp.Model;
+package com.akh.votingapp.Repo;
 
 import android.app.Application;
 import android.widget.Toast;
@@ -62,6 +62,7 @@ public class AuthRepo {
                                         hashMap.put("username", username);
                                         hashMap.put("email",email);
                                         hashMap.put("imgUrl","default");
+                                        hashMap.put("isAdmin","False");
                                         dbr.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {

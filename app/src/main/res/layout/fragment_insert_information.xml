@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_margin="5dp"
+        android:fontFamily="@font/comfortaa_light"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Information"
+        android:textColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/edt_info_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_corner"
+                android:fontFamily="@font/comfortaa_light"
+                android:gravity="top"
+                android:hint="|Enter Title"
+                android:padding="10dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <EditText
+                android:id="@+id/edt_info_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_corner"
+                android:fontFamily="@font/comfortaa_light"
+                android:gravity="top"
+                android:hint="|write something here..."
+                android:minHeight="100dp"
+                android:padding="10dp"
+                android:textStyle="bold" />
+            <ImageView
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/img_info_photo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+            <Button
+                android:id="@+id/btn_attach_post_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_corner"
+                android:drawableLeft="@drawable/ic_menu_gallery"
+                android:text="Attach Image"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:background="@drawable/input_corner"
+                android:id="@+id/btn_post_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Post Now"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,6 +1,8 @@
 package com.akh.votingapp.Model;
 
-public class CEC {
+import java.io.Serializable;
+
+public class CEC implements Serializable {
     public String id, name, department, position, email, cec_position, description,imgUrl;
 
     public CEC() {

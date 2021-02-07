@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,26 +8,61 @@
     tools:context=".View.CEC.CECFragment">
 
     <TextView
-        android:fontFamily="@font/comfortaa_light"
-        android:textColor="@color/teal_700"
         android:id="@+id/text_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="CEC ရွေးချယ်ရန်"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="8dp" />
+        android:textColor="@color/teal_700"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/rdb_cec_group"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <RadioButton
+            android:padding="3dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@drawable/input_corner"
+            android:id="@+id/rdb_ceo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ဉကဋ္ဌ၊\nဉကဋ္ဌ"/>
+        <RadioButton
+            android:id="@+id/rdb_internal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/input_corner"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="3dp"
+            android:text="အတွင်းရေးမှူး၊\nတွဲဖက်"/>
+        <RadioButton
+            android:padding="3dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@drawable/input_corner"
+            android:id="@+id/rdb_finance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ဘဏာရေးမှူး၊\nတွဲဖက်"/>
+    </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cec"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_gallery"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@layout/cec_items" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -34,8 +34,11 @@ public class LoginFragment extends Fragment {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if(firebaseUser!=null && firebaseUser.isEmailVerified()){
-                    // TODO: 12/15/20 write navigation process
                     Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_mainActivity);
+                    if (!Navigation.findNavController(getView()).popBackStack()) {
+                        // Call finish() on your Activity
+                        getActivity().finish();
+                    }
                 }
             }
         });
@@ -66,7 +69,6 @@ public class LoginFragment extends Fragment {
         txt_goToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: 12/15/20 write nav process
                 Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_signUpFragment);
             }
         });

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.akh.votingapp.Model.AuthRepo;
+import com.akh.votingapp.Repo.AuthRepo;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginViewModel extends AndroidViewModel {

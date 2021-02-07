@@ -1,7 +1,9 @@
 package com.akh.votingapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -33,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private LogoutViewModel logoutViewModel;
     private TextView txt_email;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+        return super.onCreateView(name, context, attrs);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         logoutViewModel.getUserMutableLiveData().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-                if(firebaseUser!=null){
+                if(!firebaseUser.equals(null)){
                     Toast.makeText(getApplicationContext(),firebaseUser.getEmail(),Toast.LENGTH_SHORT).show();
                     txt_email = navigationView.findViewById(R.id.txt_home_email);
                     txt_email.setText(firebaseUser.getEmail());

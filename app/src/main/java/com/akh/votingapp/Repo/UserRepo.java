@@ -1,4 +1,4 @@
-package com.akh.votingapp.Model;
+package com.akh.votingapp.Repo;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -10,8 +10,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 
