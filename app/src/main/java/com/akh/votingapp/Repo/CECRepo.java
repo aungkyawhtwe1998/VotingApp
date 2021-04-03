@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.akh.votingapp.Model.CEC;
+import com.akh.votingapp.View.CEC.VoteInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -104,6 +105,28 @@ public class CECRepo {
                 }else {
                     Toast.makeText(application.getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
 
+                }
+            }
+        });
+    }
+
+    public void insertVote(int votedPersonType, String votedPersonID, String votedDate){
+
+        db = FirebaseDatabase.getInstance().getReference("VoteInfo");
+        String id = db.push().getKey();
+        VoteInfo voteInfo1 = new VoteInfo();
+        voteInfo1.setVotedPersonID(votedPersonID);
+        voteInfo1.setVoterID(fuser.getUid());
+        voteInfo1.setVotedPersonType(votedPersonType);
+        voteInfo1.setVotedDateTime(votedDate);
+        voteInfo1.setVoteID(id);
+        db.child(id).setValue(voteInfo1).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(application.getApplicationContext(),"Voted",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(application.getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -157,6 +157,9 @@ public class Insert_CEC_Fragment extends Fragment {
         String positionInSchool = cec_positionInSchool.getText().toString();
         String email = cec_email.getText().toString();
         String positionInCEC = spinner.getSelectedItem().toString();
+        int cecType = spinner.getSelectedItemPosition();
+        //TODO to get spinner index
+        Toast.makeText(getContext(),cecType+"",Toast.LENGTH_SHORT).show();
         String description = cec_description.getText().toString();
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setMessage("Uploading");
@@ -179,7 +182,7 @@ public class Insert_CEC_Fragment extends Fragment {
                     if (task.isSuccessful()) {
                         Uri downloadUri = (Uri) task.getResult();
                         String mUri = downloadUri.toString();
-                        CEC cec = new CEC(name,department,positionInSchool,email,positionInCEC,description, mUri);
+                        CEC cec = new CEC(name,department,positionInSchool,email,positionInCEC,description, mUri, cecType);
                         cecViewModel.insertCECData(cec);
                         pd.dismiss();
                         ;

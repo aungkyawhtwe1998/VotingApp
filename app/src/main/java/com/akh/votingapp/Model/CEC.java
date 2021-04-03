@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class CEC implements Serializable {
     public String id, name, department, position, email, cec_position, description,imgUrl;
-
+    int cecType;
     public CEC() {
     }
 
-    public CEC(String name, String department, String position, String email, String cec_position, String description, String imgUrl) {
+    public CEC(String name, String department, String position, String email, String cec_position, String description, String imgUrl, int cecType) {
         this.name = name;
         this.department = department;
         this.position = position;
@@ -16,6 +16,7 @@ public class CEC implements Serializable {
         this.cec_position = cec_position;
         this.description = description;
         this.imgUrl = imgUrl;
+        this.cecType = cecType;
     }
 
     public String getId() {
@@ -80,5 +81,13 @@ public class CEC implements Serializable {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public int getCecType() {
+        return cecType;
+    }
+
+    public void setCecType(int cecType) {
+        this.cecType = cecType;
     }
 }

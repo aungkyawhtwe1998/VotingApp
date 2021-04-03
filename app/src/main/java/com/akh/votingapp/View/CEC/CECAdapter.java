@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -22,10 +23,12 @@ import java.util.ArrayList;
 public class CECAdapter extends RecyclerView.Adapter<CECAdapter.ViewHolder> {
     private ArrayList<CEC> cecList;
     public Context mContext;
+    public CecItemListener cecItemListener;
 
-    public CECAdapter(ArrayList<CEC> cecList, Context context){
+    public CECAdapter(ArrayList<CEC> cecList, Context context,CecItemListener listener){
         this.cecList = cecList;
         this.mContext = context;
+        this.cecItemListener = listener;
     }
 
     @NonNull
@@ -48,6 +51,13 @@ public class CECAdapter extends RecyclerView.Adapter<CECAdapter.ViewHolder> {
                 //TODO adapter onclick
             }
         });
+        holder.btn_vote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cecItemListener.onItemClick(cecList.get(position),position);
+//                Toast.makeText(mContext,cecList.get(position).toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -55,6 +65,10 @@ public class CECAdapter extends RecyclerView.Adapter<CECAdapter.ViewHolder> {
         return cecList.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
     class ViewHolder extends RecyclerView.ViewHolder{
         CardView cec_card;
         TextView txt_name,txt_department,txt_position;
@@ -70,5 +84,7 @@ public class CECAdapter extends RecyclerView.Adapter<CECAdapter.ViewHolder> {
             btn_vote = itemView.findViewById(R.id.btn_vote);
             cec_card = itemView.findViewById(R.id.cec_card_view);
         }
+        
+
     }
 }
