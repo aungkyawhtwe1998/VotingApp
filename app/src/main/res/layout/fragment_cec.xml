@@ -8,26 +8,28 @@
     tools:context=".View.CEC.CECFragment">
 
     <TextView
+        android:layout_marginBottom="5dp"
         android:id="@+id/text_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/comfortaa_light"
-        android:text="CEC ရွေးချယ်ရန်"
+        android:text="CEC 1 ရွေးချယ်ရန်"
         android:textAlignment="center"
         android:textColor="@color/teal_700"
         android:textStyle="bold"/>
 
     <RadioGroup
         android:id="@+id/rdb_cec_group"
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
         <RadioButton
-            android:padding="3dp"
+            android:hapticFeedbackEnabled="true"
+            android:textSize="10sp"
+            android:layout_marginRight="5dp"
             android:focusable="true"
             android:clickable="true"
             android:checked="true"
@@ -35,8 +37,11 @@
             android:id="@+id/rdb_ceo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ဉကဋ္ဌ၊\nဉကဋ္ဌ"/>
+            android:text="ဉကဋ္ဌ။\n ဉကဋ္ဌ၂ "/>
         <RadioButton
+            android:hapticFeedbackEnabled="true"
+            android:textSize="10sp"
+            android:layout_marginRight="3dp"
             android:id="@+id/rdb_internal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,10 +50,13 @@
             android:background="@drawable/input_corner"
             android:clickable="true"
             android:focusable="true"
-            android:padding="3dp"
+            android:padding="1dp"
             android:text="အတွင်းရေးမှူး၊\nတွဲဖက်"/>
         <RadioButton
-            android:padding="3dp"
+            android:hapticFeedbackEnabled="true"
+            android:textSize="10sp"
+            android:layout_marginRight="3dp"
+            android:padding="1dp"
             android:focusable="true"
             android:clickable="true"
             android:background="@drawable/input_corner"

@@ -118,8 +118,15 @@ public class CECRepo {
         voteInfo1.setVotedPersonID(votedPersonID);
         voteInfo1.setVoterID(fuser.getUid());
         voteInfo1.setVotedPersonType(votedPersonType);
+//        voteInfo1.setVoterID(voterID);
         voteInfo1.setVotedDateTime(votedDate);
         voteInfo1.setVoteID(id);
+        voteInfo1.setFifthVote(false);
+        voteInfo1.setSecondVote(false);
+        voteInfo1.setThirdVote(false);
+        voteInfo1.setFourthVote(false);
+        voteInfo1.setFifthVote(false);
+        voteInfo1.setSecondVote(false);
         db.child(id).setValue(voteInfo1).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

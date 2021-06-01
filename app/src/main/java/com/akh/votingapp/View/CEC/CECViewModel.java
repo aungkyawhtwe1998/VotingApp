@@ -29,7 +29,7 @@ public class CECViewModel extends AndroidViewModel {
     }*/
     public void insertVote(int votedPersonType, String votedPersonID, String votedDate)
     {
-        cecRepo.insertVote(votedPersonType, votedPersonID, votedDate);
+        cecRepo.insertVote(votedPersonType, votedPersonID,votedDate);
     }
 
     public MutableLiveData<ArrayList<CEC>> getCecMutableLiveData() {

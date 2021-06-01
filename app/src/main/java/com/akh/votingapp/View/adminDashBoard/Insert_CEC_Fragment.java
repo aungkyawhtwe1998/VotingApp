@@ -158,6 +158,8 @@ public class Insert_CEC_Fragment extends Fragment {
         String email = cec_email.getText().toString();
         String positionInCEC = spinner.getSelectedItem().toString();
         int cecType = spinner.getSelectedItemPosition();
+        String id = mDatabase.push().getKey();
+
         //TODO to get spinner index
         Toast.makeText(getContext(),cecType+"",Toast.LENGTH_SHORT).show();
         String description = cec_description.getText().toString();
@@ -182,10 +184,10 @@ public class Insert_CEC_Fragment extends Fragment {
                     if (task.isSuccessful()) {
                         Uri downloadUri = (Uri) task.getResult();
                         String mUri = downloadUri.toString();
-                        CEC cec = new CEC(name,department,positionInSchool,email,positionInCEC,description, mUri, cecType);
+                        CEC cec = new CEC(id,name,department,positionInSchool,email,positionInCEC,description, mUri, cecType);
                         cecViewModel.insertCECData(cec);
                         pd.dismiss();
-                        ;
+
                     } else {
                         Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
                         pd.dismiss();

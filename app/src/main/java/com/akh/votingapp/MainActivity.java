@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if(!firebaseUser.equals(null)){
-                    Toast.makeText(getApplicationContext(),firebaseUser.getEmail(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),firebaseUser.getEmail(),Toast.LENGTH_SHORT).show();
                     txt_email = navigationView.findViewById(R.id.txt_home_email);
                     txt_email.setText(firebaseUser.getEmail());
 //                    btn_logout.setEnabled(true);

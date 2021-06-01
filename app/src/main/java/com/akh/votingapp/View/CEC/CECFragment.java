@@ -2,7 +2,6 @@ package com.akh.votingapp.View.CEC;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +16,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.akh.votingapp.Model.CEC;
 import com.akh.votingapp.R;
-import com.akh.votingapp.View.adminDashBoard.Insert_CEC_Fragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CECFragment extends Fragment implements CecItemListener{
 
@@ -41,6 +41,9 @@ public class CECFragment extends Fragment implements CecItemListener{
     public static final int REQUEST_CODE_UPDATE_NOTE =0;
     public static final int REQUEST_CODE_SHOW_NOTE=-1;
 
+    List<CEC> newCEC = new ArrayList<>();
+    String uid = "";
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,16 +52,21 @@ public class CECFragment extends Fragment implements CecItemListener{
         cecViewModel.getCecMutableLiveData().observe(this, new Observer<ArrayList<CEC>>() {
             @Override
             public void onChanged(ArrayList<CEC> cecList) {
-
                 if(cecList!=null){
-                    for(int i=0; i<cecList.size(); i++){
-                        if(cecList.get(i).getCecType()==votedPersonType){
-                            cecAdapter = new CECAdapter(cecList,getContext(),CECFragment.this);
-                            recyclerView.setAdapter(cecAdapter);
-                            cecAdapter.notifyDataSetChanged();
-                        }
+                    for(CEC cec:cecList){
+//                        newCEC.add(cec);
+                        newCEC.add(cec);
                     }
 
+                    List<CEC> cec1 = new ArrayList<>();
+                    for(CEC cec2:cecList){
+                        if(cec2.getCecType() == 0){
+                            cec1.add(cec2);
+                        }
+                        cecAdapter = new CECAdapter((ArrayList<CEC>) cec1,getContext(),CECFragment.this);
+                        recyclerView.setAdapter(cecAdapter);
+                        cecAdapter.notifyDataSetChanged();
+                    }
                 }
             }
         });
@@ -93,9 +101,19 @@ public class CECFragment extends Fragment implements CecItemListener{
                     default:
 
                 }
-                Toast.makeText(getContext(), "radio button selected " + votedPersonType, Toast.LENGTH_SHORT).show();
+                List<CEC> nextCEC = new ArrayList<>();
+                for(CEC cec:newCEC){
+                    if(cec.getCecType()==votedPersonType){
+                        nextCEC.add(cec);
+                    }
+                    cecAdapter = new CECAdapter((ArrayList<CEC>) nextCEC,getContext(),CECFragment.this);
+                    recyclerView.setAdapter(cecAdapter);
+                    cecAdapter.notifyDataSetChanged();
+                }
+//                Toast.makeText(getContext(), "radio button selected " + votedPersonType, Toast.LENGTH_SHORT).show();
             }
         });
+
         return root;
     }
 

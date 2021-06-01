@@ -8,7 +8,8 @@ public class CEC implements Serializable {
     public CEC() {
     }
 
-    public CEC(String name, String department, String position, String email, String cec_position, String description, String imgUrl, int cecType) {
+    public CEC(String id, String name, String department, String position, String email, String cec_position, String description, String imgUrl, int cecType) {
+        this.id = id;
         this.name = name;
         this.department = department;
         this.position = position;
